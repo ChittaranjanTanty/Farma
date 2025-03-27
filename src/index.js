@@ -9,6 +9,7 @@ const connectDB = require('./config/dbConfig');
 const userRouter = require('./routes/userRoute');
 const authRouter = require('./routes/authRoute');
 const contentRoutes = require("./routes/contentRoutes");
+const advisoryRoutes = require("./routes/advisoryRoutes");
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/users', userRouter);
 app.use('/auth', authRouter);
 app.use("/api", contentRoutes);
+app.use("/api/advisory", advisoryRoutes);
 
 app.get('/ping', (req, res) => {
     console.log(req.body);
